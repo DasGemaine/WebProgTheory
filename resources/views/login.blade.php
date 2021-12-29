@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-danger text-white" style="border-radius: 1rem;">
+          <div class="card bg-dark text-white bg-opacity-75" style="border-radius: 1rem;">
             <div class="card-body p-5 text-center">
               <div class=" mt-md-4 pb-5">
                 <form action="/login" method="POST">
@@ -30,7 +30,7 @@
                     <input type="email" id="email" name="email" class="form-control form-control-lg" 
                     
                     @if (Cookie::has('email'))
-                      value="{{Cookie::get('email')}}"   
+                      value={{Cookie::get('email')}}  
                     @endif  
           
                     autofocus required value="{{ old ('email') }}"/>
@@ -41,7 +41,7 @@
                     <input type="password" id="password" name="password" class="form-control form-control-lg" 
                     
                     @if (Cookie::has('password'))
-                      value="{{Cookie::get('password')}}"   
+                      value={{Cookie::get('password')}}   
                     @endif  
                     />
                     <label class="form-label" for="password">Password</label>

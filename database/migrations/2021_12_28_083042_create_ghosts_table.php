@@ -16,11 +16,10 @@ class CreateGhostsTable extends Migration
         Schema::create('ghosts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('countryID')->references('id')->on('countries');
+            $table->string('origin');
             $table->string('ghost_image');
             $table->text('thumbnail_text');
             $table->text('information');
-            $table->text('how to fight');
             $table->timestamps();
         });
     }

@@ -3,8 +3,6 @@
 use App\Http\Controllers\GhostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use app\Models\Story;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,52 +14,59 @@ use app\Models\Story;
 |
 */
 
-Route::get('/', function () {
+Route::GET('/', function () {
     return view('home',[
         "title" => "Home"
     ]);
-});
+})->name('home');
 Route::POST('/logout', [UserController::class, 'logout']);
 
 
-Route::get('/login',function(){
-    
-    return view('login');
-})->middleware('guest');
+Route::GET('/login',function(){
+    return view('login', [
+        'title' => 'Login'
+    ]);
+})->middleware('guest')->name('login');
 Route::POST('/login', [UserController::class, 'login']);
 
 
 
-Route::get('/register',function(){
-    
-    return view('register');
-})->middleware('guest');
+Route::GET('/register',function(){
+    return view('register', [
+        'title' => 'Register'
+    ]);
+})->middleware('guest')->name('register');
 
 Route::POST('/register', [UserController::class, 'register']);
 
 
+Route::GET('/ghosts', [GhostController::class, 'index'])->name('ghosts');
 
-Route::get('/fight', function () {
-    return view('fight');
-});
+Route::GET('/ghosts/add-ghost', function(){
+    return view('add-ghost', [
+        'title' => 'Add Ghost'
+    ]);
+})->middleware('auth')->name('add-ghost');
+
+Route::POST('/ghosts/add-ghost', [GhostController::class, 'create']);
+
+Route::GET('/ghosts/{ghosts:name}/detail', [GhostController::class, 'detail'])->name('ghost-detail');
+
+Route::GET('/ghosts/{ghosts:name}/weakness', function () {
+    return view('weakness');
+})->name('weakness');
 
 
 
-Route::get('/stories', function () {
-    return view('stories');
-});
 
-Route::get('/story',function(){
+
+Route::GET('/story',function(){
     
     return view('story');
-});
-Route::get('/experiences',function(){
-    
-    return view('experiences');
-});
+})->middleware('auth')->name('story');
 
 
-Route::GET('/add-ghost', [GhostController::class, 'index']);
+
 
 
 

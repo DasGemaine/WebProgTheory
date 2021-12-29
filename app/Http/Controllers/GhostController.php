@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ghost;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreGhostRequest;
 use App\Http\Requests\UpdateGhostRequest;
 
@@ -15,8 +17,19 @@ class GhostController extends Controller
      */
     public function index()
     {
-        //
-        return view('add-ghost');
+        $ghosts = Ghost::inRandomOrder()->take(4)->get();
+        return view('ghost', [
+            'title' => 'ghosts',
+            'ghosts' => $ghosts
+        ]);
+    }
+
+    public function detail(Ghost $ghosts)
+    {
+        return view('detail', [
+            'title' => 'Detail',
+            'ghosts' => $ghosts
+        ]);
     }
 
     /**
@@ -24,9 +37,29 @@ class GhostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+
+        $ghost = $request->validate([
+            'name' => 'required',
+            'origin' => 'required|not_in:Choose Origin...',
+            'ghost_image' => 'required|mimes:png,jpg,jpeg,svg',
+            'information' => 'required'
+        ]);
+
+
+        $string = $request->information;
+
+        
+        $ghost['ghost_image'] = $request->file('ghost_image')->store('ghost-images');
+        
+        $ghost['thumbnail_text'] = Str::limit(strip_tags($string), 200, '...');
+        
+        Ghost::create($ghost);
+
+        return redirect('/ghosts')->with('success_add-ghost', 'Successfully inputted a new Ghost');
+
     }
 
     /**
