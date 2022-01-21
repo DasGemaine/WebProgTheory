@@ -7,9 +7,14 @@ body{
 }
 
 .btn-logout{
-    background-color: #2C394B;
+    background-color: #ffffff;
 }
 
 .btn-share{
     background-color: #FF4C29;
+}
+
+
+.btn-profile{
+    background-color: #2C394B;
 }

@@ -71,35 +71,35 @@ class GhostSeeder extends Seeder
         Ghost::create([
             'name' => 'Kappa',
             'origin' => 'Japan',
-            'ghost_image' => 'http://127.0.0.1:8000/image/KAPPA.jpg',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/KAPPA.jpg',
             'thumbnail_text' => Str::limit(strip_tags($kappa), 200, '...'),
             'information' => $kappa
         ]);
         Ghost::create([
             'name' => 'Chupacabra',
             'origin' => 'Mexico',
-            'ghost_image' => 'http://127.0.0.1:8000/image/CHUPACABRA.jpg',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/CHUPACABRA.jpg',
             'thumbnail_text' => Str::limit(strip_tags($Chupacabra), 200, '...'),
             'information' => $Chupacabra
         ]);
         Ghost::create([
             'name' => 'Kuntilanak',
             'origin' => 'Indonesia',
-            'ghost_image' => 'http://127.0.0.1:8000/image/KUNTILANAK.jpg',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/KUNTILANAK.jpg',
             'thumbnail_text' => Str::limit(strip_tags($Kuntilanak), 200, '...'),
             'information' => $Kuntilanak
         ]);
         Ghost::create([
             'name' => 'Vampire',
             'origin' => 'Romania',
-            'ghost_image' => 'http://127.0.0.1:8000/image/VAMPIRE.jpg',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/VAMPIRE.jpg',
             'thumbnail_text' => Str::limit(strip_tags($Vampire), 200, '...'),
             'information' => $Vampire
         ]);
         Ghost::create([
             'name' => 'Wendigo',
             'origin' => 'United States',
-            'ghost_image' => 'http://127.0.0.1:8000/image/WENDIGO.jpg',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/WENDIGO.jpg',
             'thumbnail_text' => Str::limit(strip_tags($Wendigo), 200, '...'),
             'information' => $Wendigo
         ]);

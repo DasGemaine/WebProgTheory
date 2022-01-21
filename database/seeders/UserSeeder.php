@@ -23,13 +23,15 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make($password),
-            'role' => 'admin'
+            'role' => 'admin',
+            'image' => 'http://127.0.0.1:8000/image/profile/profile-default.jpg'
         ]);
         User::create([
             'name' => 'tester',
             'email' => 'test@gmail.com',
             'password' => Hash::make($password),
-            'role' => 'member'
+            'role' => 'member',
+            'image' => 'http://127.0.0.1:8000/image/profile/profile-default.jpg'
         ]);
     }
 }

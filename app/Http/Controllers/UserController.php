@@ -36,7 +36,7 @@ class UserController extends Controller
             'password' => 'required',  
         ]);
 
-        $tokenexpired = 60;
+        $tokenexpired = 3600;
 
         $remember = $request['remember'];
 
@@ -68,6 +68,21 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function index(){
+        return view('profile', [
+            'title' => Auth::user()->id,
+            'user' => Auth::user()
+        ]);
+    }
+
+
+    public function update(){
+        return view('edit-profile', [
+            'title' => "Edit Profile",
+            'user' => Auth::user()
+        ]);
     }
 
 }

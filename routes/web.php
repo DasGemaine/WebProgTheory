@@ -73,8 +73,13 @@ Route::GET('/stories/add-story', function(){
 
 Route::POST('/stories/add-story', [StoryController::class, 'create'])->middleware('auth');
 
-
 Route::GET('/stories/{story:title}', [StoryController::class, 'show']);
+
+
+
+Route::GET('/profile/{users:name}', [UserController::class, 'index'])->middleware('auth');
+
+Route::GET('/profile/{users:name}/edit', [UserController::class, 'update'])->middleware('auth');
 
 
 
