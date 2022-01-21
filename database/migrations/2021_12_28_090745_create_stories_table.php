@@ -19,6 +19,7 @@ class CreateStoriesTable extends Migration
             $table->foreignId('userID')->references('id')->on('users');
             $table->foreignId('ghostID')->references('id')->on('ghosts');
             $table->text('story');
+            $table->text('thumbnail_text');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="/">Folklore</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,9 +24,16 @@
                     <a class="nav-link active" href="/ghosts/add-ghost">Add Ghost</a>
                   </li>
                 @endif
+
                 <li class="nav-item">
-                  <a class="nav-link active" href="/story">Share</a>
+                  <a class="nav-link active" href="/stories">Stories</a>
                 </li>
+
+                @if (Route::currentRouteName() == 'stories' && Auth::user()->role != 'admin')
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/stories/add-story">Share Story</a>
+                  </li>
+                @endif
               @endauth 
             </ul>
           </div>

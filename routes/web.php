@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\GhostController;
+use App\Http\Controllers\StoryController;
 use App\Http\Controllers\UserController;
+use App\Models\Ghost;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -50,20 +52,28 @@ Route::GET('/ghosts/add-ghost', function(){
 
 Route::POST('/ghosts/add-ghost', [GhostController::class, 'create']);
 
-Route::GET('/ghosts/{ghosts:name}/detail', [GhostController::class, 'detail'])->name('ghost-detail');
+Route::GET('/ghosts/{ghosts:name}', [GhostController::class, 'detail'])->name('ghost-detail');
 
-Route::GET('/ghosts/{ghosts:name}/weakness', function () {
-    return view('weakness');
-})->name('weakness');
+// Route::GET('/ghosts/{ghosts:name}/weakness', function () {
+//     return view('weakness');
+// })->name('weakness');
 
+Route::GET('/stories', [StoryController::class, 'index'])->middleware('auth')->name('stories');
 
+Route::GET('/stories/add-story', function(){
 
-
-
-Route::GET('/story',function(){
+    $ghosts = Ghost::all();
     
-    return view('story');
-})->middleware('auth')->name('story');
+    return view('add-story', [
+        'title' => 'Share Story',
+        'ghosts' => $ghosts
+    ]);
+});
+
+
+Route::GET('/stories/{Story:title}', [StoryController::class, 'show']);
+
+
 
 
 

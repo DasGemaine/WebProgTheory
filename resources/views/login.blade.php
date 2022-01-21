@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-dark text-white bg-opacity-75" style="border-radius: 1rem;">
+          <div class="card bg-light text-white bg-opacity-25" style="border-radius: 1rem;">
             <div class="card-body p-5 text-center">
               <div class=" mt-md-4 pb-5">
                 <form action="/login" method="POST">
@@ -59,7 +59,7 @@
                     </label>
                   </div>
 
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                  <button type="submit" class="bg-danger btn  btn-block btn-lg text-light">Login</button>
                 </form>
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
                   <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>

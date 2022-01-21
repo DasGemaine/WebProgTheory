@@ -17,7 +17,7 @@ class GhostController extends Controller
      */
     public function index()
     {
-        $ghosts = Ghost::inRandomOrder()->take(4)->get();
+        $ghosts = Ghost::all();
         return view('ghost', [
             'title' => 'ghosts',
             'ghosts' => $ghosts
@@ -51,8 +51,15 @@ class GhostController extends Controller
 
         $string = $request->information;
 
+        $file_ext = $request->ghost_image->getClientOriginalExtension();
+        $filename = $request->name.'.'.$file_ext;
+        $filepath = $request->ghost_image->move('image', $filename);
+        $newfilepath = asset('image/'.$filename);
+
+        $ghost['ghost_image'] = $newfilepath;
+
         
-        $ghost['ghost_image'] = $request->file('ghost_image')->store('ghost-images');
+        // $ghost['ghost_image'] = $request->file('ghost_image')->store('ghost-images');
         
         $ghost['thumbnail_text'] = Str::limit(strip_tags($string), 200, '...');
         

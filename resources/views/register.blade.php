@@ -5,7 +5,7 @@
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 15px;">
+            <div class="card bg-light text-white bg-opacity-25" style="border-radius: 15px;">
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
   
@@ -40,7 +40,7 @@
                   </div>
                 </form>
   
-                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login" class="fw-bold text-body"><u>Login here</u></a></p>
+                  <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="/login" class="text-white-50 fw-bold"><u>Login here</u></a></p>
                
   
               </div>

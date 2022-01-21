@@ -291,7 +291,7 @@
                                 
 
                                 <div class="form-group mb-3">
-                                    <input id="information" type="hidden" name="information" id="information" autofocus required value="{{ old ('information') }}">
+                                    <input id="information" type="hidden" name="information" id="information" required value="{{ old ('information') }}">
                                     <trix-editor input="information" class="trix-content @error('information') is-invalid @enderror"></trix-editor>
 
                                     @error('information')

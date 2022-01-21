@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ghost;
 use App\Models\Story;
+use Illuminate\Support\Str;
 use App\Http\Requests\StoreStoryRequest;
 use App\Http\Requests\UpdateStoryRequest;
-use App\Models\Ghost;
+use Illuminate\Http\Request;
 
 class StoryController extends Controller
 {
@@ -16,7 +18,11 @@ class StoryController extends Controller
      */
     public function index()
     {
-
+        $story = Story::all();
+        return view('stories', [
+            'title' => 'Stories',
+            'stories' => $story
+        ]);
     }
 
     /**
@@ -24,9 +30,21 @@ class StoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $story = $request->validate([
+            'title' => 'required',
+            'ghostID' => 'required',
+            'story' => 'required'
+        ]);
+
+        $string = $request->story;
+
+        $story['thumbnail_text'] = Str::limit(strip_tags($string), 100, '...');
+
+        Story::create($story);
+
+        return redirect('/stories')->with('success_add-story', 'Successfully share a new story!');
     }
 
     /**
