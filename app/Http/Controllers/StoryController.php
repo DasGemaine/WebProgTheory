@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Http\Requests\StoreStoryRequest;
 use App\Http\Requests\UpdateStoryRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoryController extends Controller
 {
@@ -41,6 +42,7 @@ class StoryController extends Controller
         $string = $request->story;
 
         $story['thumbnail_text'] = Str::limit(strip_tags($string), 100, '...');
+        $story['userID'] = Auth::user()->id;
 
         Story::create($story);
 
@@ -67,6 +69,10 @@ class StoryController extends Controller
     public function show(Story $story)
     {
         //
+        return view('story-detail', [
+            'title' => $story->title,
+            'story' => $story
+        ]);
     }
 
     /**

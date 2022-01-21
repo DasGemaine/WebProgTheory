@@ -9,38 +9,32 @@
     </div>
 @endif
 
+{{-- <button type="submit" class="btn btn-share border-0 text-light">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+  </svg>
+  Share Story</button>  --}}
+
+  <a href="/stories/add-story" class="btn btn-share text-light mb-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+    </svg>
+    Share Story
+  </a>
+
 
 @foreach ($stories as $story)
 <div class="card">
-  <div class="card-header">
-    Featured
+  <div class="card-header text-muted">
+    By {{ $story->user->name }}
+    
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{ $story->title }}</h5>
+    <p class="card-text">{{ $story->thumbnail_text }}</p>
+    <a href="/stories/{{ $story->title }}" class="btn btn-primary">Read now</a>
   </div>
 </div>
 @endforeach
-{{-- 
-
-    <article>
-        <select class="form-select mb-2" aria-label="Default select example">
-            <option selected>Ghost</option>
-            <option value="1">Kappa | Japan</option>
-            <option value="2">Dracula | Romania</option>
-            <option value="3">Kuntilanak | Indonesia</option>
-        </select>
-        <div class="mb-2">
-            <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-          </div>
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-            <label for="floatingTextarea2">Share your experiences here</label>
-          </div>
-          <input class="btn btn-primary mt-2 mb-2" type="submit" value="Submit">
-    </article>
-    <a href="/" class="mt-5">Back To Home</a> --}}
 
 @endsection

@@ -27,8 +27,9 @@
                                 <div class="form-outline mb-4">
                                     <label for="ghostID">Ghost</label>
                                     <select name="ghostID" id="ghostID" class="form-control" required value="{{old ('ghostID')}}">
+                                        <option value="none" selected>none</option>
                                         @foreach ($ghosts as $ghost)
-                                            <option value="{{ $ghost->name }}">{{ $ghost->name }}</option>
+                                            <option value="{{ $ghost->id }}">{{ $ghost->name }}</option>
                                         @endforeach
                                     </select>
 

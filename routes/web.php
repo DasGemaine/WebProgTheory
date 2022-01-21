@@ -4,6 +4,7 @@ use App\Http\Controllers\GhostController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\UserController;
 use App\Models\Ghost;
+use App\Models\Story;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -70,8 +71,10 @@ Route::GET('/stories/add-story', function(){
     ]);
 });
 
+Route::POST('/stories/add-story', [StoryController::class, 'create'])->middleware('auth');
 
-Route::GET('/stories/{Story:title}', [StoryController::class, 'show']);
+
+Route::GET('/stories/{story:title}', [StoryController::class, 'show']);
 
 
 

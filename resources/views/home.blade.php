@@ -4,15 +4,16 @@
 <div class="bg-light">
     <img src="{{ asset('asset/petadunia.png') }}" alt="" width="80%" height="80%">
 </div>
-<h5 class="text-center text-light">Eksistensi dunia sering menjadi topik penelitian sejak dahulu kala. Banyak teori yang muncul mengenai bagaimana cara dunia terbuat seperti teori BigBang. Setelah itu banyak makhluk yang dapat menghuni bumi, memanfaatkan matahari, berburu binatang, bercocok tanam. Semua hal yang baru disebutkan tadi merupakan mahluk yang dapat dilihat, dirasa.</h5>
-<h5 class="text-center text-light">Bagaimana dengan makhluk yang tidak kasat mata?</h5>
-<h5 class="text-center text-light">Tidak ada yang tau bagaimana makhluk ini terbentuk, apakah sudah ada sejak awal penciptaan bumi? Jika menurut dari sisi baik dan salah, makhluk yang tidak kasat mata ini mati dengan cara yang salah sehingga masih memiliki "keperluan" di bumi ini. Konon menurut "orang pintar" atau orang yang bisa melihat mereka, mereka memiliki bentuk berbagai macam, ada yang menyerupai binatang, raksasa, bahkan kita sendiri manusia.</h5>
-<h5 class="text-center text-light">Seluruh tempat/ negara atau benua memiliki cerita tentang makhluk yang kita sebut hantu ini sendiri sendiri. Seperti di Indonesia memiliki cerita mengenai <a href="">kuntilanak</a>, <a href="">tuyul</a> dan lain lain. <a href="">vampire</a> yang berbentuk manusia yang haus akan darah manusia berasal dari Romania. Jepang yang memilikki <a href="">kappa</a> yang merupakan setengah manusia dan setengah kura kura. semua negara memiliki ceritanya masing masing.</h5>
+<h5 class="text-center text-light">how did earth exists? no one knows how earth exists, only theories like big bang that is based on an assumption. but how did earth really exists?. it doesn't matter. what matter is how earth become home for many creature. such as animals, plants, us humans and the little organisms. all of that creatures can be touched, can be seen.
+</h5>
+<h5 class="text-center text-light">how about creatures that can't be seen?</h5>
+<h5 class="text-center text-light">no one knows how did these creatures exist. according to some people, these creatures are called ghosts. they are just like us humans but have lived in a different realm but still on earths. those people said that these creatures are created because when they live, they have unfinished business and when they die, they still trying to do that business.</h5>
+<h5 class="text-center text-light">Every place, every country, every continent have these creatures called ghost and their own story. for example in Indonesia there is a woman ghost called kuntilanak and in japan there is a half man half turtle called kappa. every country have it's own story about ghost.</h5>
 <h5 class="text-center text-light">   
-    <h5 class="fw-bold text-center text-light">folklore akan menyediakan semua cerita dari berbagai negara.</h5>
+    <h5 class="fw-bold text-center text-light">All of the stories are available in folklore.</h5>
 </h5> 
 <h5 class="text-center fw-bold text-light">   
-    Selamat datang di folklore!
+    Welcome to Folklore!
 </h5>
 
 @endsection

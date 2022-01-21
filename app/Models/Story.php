@@ -11,17 +11,26 @@ class Story extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'title',
+        'userID',
+        'ghostID',
+        'story',
+        'thumbnail_text'
+    ];
+
     protected $with = [
         'user',
         'ghost'
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'userID');
     }
 
     public function ghost(){
-        return $this->belongsTo(Ghost::class);
+        return $this->belongsTo(Ghost::class, 'ghostID');
     }
 
 }
