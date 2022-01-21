@@ -12,6 +12,10 @@
                 <a class="nav-link active" href="/ghosts">Ghosts</a>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link active" href="/stories">Stories</a>
+              </li>
+
               @auth
                 @if (Route::currentRouteName() == 'ghosts' && Auth::user()->role == 'admin')
                   <li class="nav-item">
@@ -19,9 +23,7 @@
                   </li>
                 @endif
 
-                <li class="nav-item">
-                  <a class="nav-link active" href="/stories">Stories</a>
-                </li>
+                
 
                 {{-- @if (Route::currentRouteName() == 'stories' && Auth::user()->role != 'admin')
                   <li class="nav-item">

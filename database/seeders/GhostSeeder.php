@@ -66,6 +66,34 @@ class GhostSeeder extends Seeder
         
         According to legend, it's nearly impossible to escape a wendigo. Hunters by nature, wendigoes are extremely fast and allow nothing to get in the way of their never-ending hunger. Even if you could escape physical damage (which is unlikely), the very fact that you'd encountered an otherworldly wendigo would leave you mentally vacant. Wendigoes hibernate for months or years but woe betide when they awaken. Wendigoes can stealthily stalk victims for extended periods, thanks to supernatural speed, endurance and heightened senses such as hearing so profound they can pick up on panicked heartbeats from miles away. This skill comes in quite handy in the woods, no doubt. Once the chase begins, wendigoes engage in a torturous game. They bait their prey, release shrieks or growls, and sometimes mimic human voices calling for help. When the hunt begins in earnest, a wendigo becomes all business. It will race after its prey, upending trees, creating animal stampedes (and thus more famine), and stirring up ice storms and tornadoes. Don't be fooled into believing you're safe indoors. The wendigo can unlock doors and enter homes, where it will kill and eat the inhabitants before converting the cabins into wendigo domiciles for hibernation. If you can't outrun a wendigo, can you outgun it? Not easily. A wounded wendigo simply regenerates. The trick is to employ silver bullets, or a pure silver blade or stake, and strike right through the wendigo's ice-cold heart. (Note: It's widely believed a silver-covered steel blade could work if you're in a pinch.) Upon wounding the wendigo's heart, you must take care to shatter it into pieces, then lock the shattered heart in a silver box and bury it in a church cemetery. Not one to seek a simple end, the rest of the wendigo must be dismembered with a silver-plated axe so you can salt and burn the body, and then scatter its ashes to the winds. Or, as a second option, bury the pieces in a remote location.";
 
+        $Bogeyman = "Bogeyman or you can say Bogeywoman if it feminime, is creature in English folklore that is often told to scare misbehaving children. Also known as Dream Devils which were opposed by Sandmen, the Dream benevolent Spirits. The Bogeyman can be called as spelled boogeyman, bogyman, bogieman, boogie monster, boogie man, Bogeyperson, Boogieperson, Boogeyperson, Bogieperson, or boogie woogie.
+        
+        This creature's description varies from person to person, as it has no definite appearance and is simply the embodiement of terror. Although usually depicted as a masculine entity, it can be female or genderless.
+
+        The first reference to the Bogeyman would be considered the hobgoblins described in England, in the 1500's. Many believed that they were made to torment humans, and while some only played simple pranks, others were more foul in nature.";
+
+        $Banshee = "are believed by some to be spirits of nature or pre-Christian Gaelic deities. In Theosophy and in Celtic Christian religion, they are commonly called fallen angels. In English, they are described as a fairy or woman of mound.
+        
+        Rarely seen but heard, her mourning call is often given at night when someone is about to die. The quality of her voice varies to region to region. Some describe it as 'low and pleasant', Some also take to singing songs to do the work, and put power into it without changing the sound.
+        
+        Banshee are fairly popular and enjoy the same status (in Ireland) as leprechauns. One possible origin of the Banshee are keeners, woman in Ireland that sing songs of lament at funerals.";
+
+        $Kitsune = "Most tales of kitsune are about foxes punishing wicked priests, greedy merchants, and boastful drunkards. They do this by confusing their targets by creating phantom sounds and sights, stealing from them, or otherwise humiliating them publicly through trickery or even possession. Certain mental disorders have been attributed to possession by kitsune (known as kitsune-tsuki). Mysterious illusory fires and strange lights in the sky are said to be caused by their magic, and are known as kitsunebi, or “fox fire.”
+        
+        Kitsune are extremely intelligent and very powerful shape-shifters. They frequently harass humans by transforming into giants or other fearsome monsters, sometimes just for pranks, and sometimes for other nefarious purposes. They are skilled enough to even transform into exact likenesses of individual people, often appearing in the guise of beautiful human women in order to play tricks young men.
+        
+        The Apperance of Kitsune yokai, often have many tails. They can also be portrayed as bipedal. In human form, the Kitsune are known for being very attractive. There is one particularly famous kitsune known as Tamamo no Mae.";
+        
+        $Harpy = "They were generally depicted as birds with the heads of maidens, faces pale with hunger and long claws on their hands. Pottery art depicting the harpies featured beautiful women with wings. 
+        
+        The harpies seem originally to have been wind spirits. The harpies were called the hounds of mighty Zeus thus ministers of the Thunderer (Zeus).";
+
+        $Stingy_Jack = " Stingy Jack or as we know as Jack the smith was a blacksmith and trickster. Jack was drunk, a liar, and a thief with skills that could rival the devil himself. 
+        
+        In his life he was cruel man who stole and started fights. But after his body died he became a soul that was forced to live to live forever with his crimes and sins. When he was alive Jack felt no shame or guilt for what he had done not until he died and was cursed. Jack's curse is not only a punishment for him but a warning for others who have sinned like Jack. He tries keep others from making the same mistakes that he has made but will also prey on those who have sinned and don't listen to his warnings.
+        
+        Jack's turnip and coal given to him by the devil is what started the idea of Jack-o-lanterns to keep evil spirits away. However those who have sin in their hearts their Jack-o-lantern becomes a beacon for Jack.";
+
 
         
         Ghost::create([
@@ -104,5 +132,46 @@ class GhostSeeder extends Seeder
             'information' => $Wendigo
         ]);
         
+
+        Ghost::create([
+            'name' => 'Bogeyman',
+            'origin' => 'World-wide',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/BOGEYMAN.jpeg',
+            'thumbnail_text' => Str::limit(strip_tags($Bogeyman), 200, '...'),
+            'information' => $Bogeyman
+        ]);
+
+        Ghost::create([
+            'name' => 'Banshee',
+            'origin' => 'Europe',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/Banshee.jpg',
+            'thumbnail_text' => Str::limit(strip_tags($Banshee), 200, '...'),
+            'information' => $Banshee
+        ]);
+
+        Ghost::create([
+            'name' => 'Kitsune',
+            'origin' => 'Japan',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/KITSUNE.jpeg',
+            'thumbnail_text' => Str::limit(strip_tags($Kitsune), 200, '...'),
+            'information' => $Kitsune
+        ]);
+
+        Ghost::create([
+            'name' => 'Harpy',
+            'origin' => 'Greco-Roman',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/HARPY.jpeg',
+            'thumbnail_text' => Str::limit(strip_tags($Harpy), 200, '...'),
+            'information' => $Harpy
+        ]);
+
+        Ghost::create([
+            'name' => 'Stingy Jack',
+            'origin' => 'Ireland',
+            'ghost_image' => 'http://127.0.0.1:8000/image/ghost/Stingy_Jack.png',
+            'thumbnail_text' => Str::limit(strip_tags($Stingy_Jack), 200, '...'),
+            'information' => $Stingy_Jack
+        ]);
+
     }
 }

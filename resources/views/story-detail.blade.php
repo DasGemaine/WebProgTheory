@@ -5,7 +5,7 @@
             {{ $story->title }}
         </h2>
         <h5>
-           By {{ $story->user->name }}
+            By {{ $story->user->name }}
         </h5>
         {{-- <div class="trix-content">
             {{ $ghosts->information }}
@@ -14,7 +14,7 @@
         {!! $story->story !!}
     </article>
     {{-- <a href="/fight" ><h5 class="mb-2">How you can fight Kappa</h5></a> --}}
-    <a href='/stories'><h6 class="mb-2 text-decoration-none">Back To Stories</h6></a> 
+    <a href='/stories' class="text-decoration-none"><h6 class="mb-2">Back To Stories</h6></a> 
 
 
     <link rel="stylesheet" type="text/css" href="/css/trix.css">

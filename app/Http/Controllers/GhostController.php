@@ -53,8 +53,8 @@ class GhostController extends Controller
 
         $file_ext = $request->ghost_image->getClientOriginalExtension();
         $filename = $request->name.'.'.$file_ext;
-        $filepath = $request->ghost_image->move('image', $filename);
-        $newfilepath = asset('image/'.$filename);
+        $filepath = $request->ghost_image->move('image/ghost/', $filename);
+        $newfilepath = asset('image/ghost/'.$filename);
 
         $ghost['ghost_image'] = $newfilepath;
 

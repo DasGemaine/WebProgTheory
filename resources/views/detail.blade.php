@@ -18,7 +18,7 @@
         {!!$ghosts->information !!}
     </article>
     {{-- <a href="/fight" ><h5 class="mb-2">How you can fight Kappa</h5></a> --}}
-    <a href='/ghosts'><h6 class="mb-2 text-decoration-none">Back To Ghost</h6></a> 
+    <a href='/ghosts' class="text-decoration-none"><h6 class="mb-2">Back To Ghost</h6></a> 
 
 
     <link rel="stylesheet" type="text/css" href="/css/trix.css">

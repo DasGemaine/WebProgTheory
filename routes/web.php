@@ -5,6 +5,7 @@ use App\Http\Controllers\StoryController;
 use App\Http\Controllers\UserController;
 use App\Models\Ghost;
 use App\Models\Story;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +60,7 @@ Route::GET('/ghosts/{ghosts:name}', [GhostController::class, 'detail'])->name('g
 //     return view('weakness');
 // })->name('weakness');
 
-Route::GET('/stories', [StoryController::class, 'index'])->middleware('auth')->name('stories');
+Route::GET('/stories', [StoryController::class, 'index'])->name('stories');
 
 Route::GET('/stories/add-story', function(){
 
@@ -79,7 +80,9 @@ Route::GET('/stories/{story:title}', [StoryController::class, 'show']);
 
 Route::GET('/profile/{users:name}', [UserController::class, 'index'])->middleware('auth');
 
-Route::GET('/profile/{users:name}/edit', [UserController::class, 'update'])->middleware('auth');
+Route::GET('/profile/{users:name}/edit', [UserController::class, 'editProfile'])->middleware('auth');
+
+Route::POST('/profile/{users:name}/edit', [UserController::class, 'update'])->middleware('auth');
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cookie;
@@ -71,14 +72,43 @@ class UserController extends Controller
     }
 
     public function index(){
+        
+        $user = Auth::user();
+
         return view('profile', [
-            'title' => Auth::user()->id,
-            'user' => Auth::user()
+            'title' => $user->name,
+            'user' => $user,
+            'count' => DB::table('stories')->where('userID', $user->id)->count()
         ]);
     }
 
 
-    public function update(){
+    public function update(Request $request, User $user){
+
+        $update = $request->validate([
+            'name' => 'required',
+            'image' => 'file|mimes:jpg,png,jpeg',
+        ]);
+
+        if($request->hasFile('image')){
+            $file_ext = $request->image->getClientOriginalExtension();
+            $filename = $request->name.'.'.$file_ext;
+            $filepath = $request->image->move('image/profile/', $filename);
+            $newfilepath = asset('image/profile/'.$filename);
+    
+            $update['image'] = $newfilepath;
+        }else{
+            $update['image'] = Auth::user()->image;
+        }
+             
+
+        User::where('id', Auth::user()->id)
+                ->update($update);
+        
+        return redirect('/profile/{users:name}')->with('profile/success_edit', 'Profile has been updated');
+    }
+
+    public function editProfile(){
         return view('edit-profile', [
             'title' => "Edit Profile",
             'user' => Auth::user()
