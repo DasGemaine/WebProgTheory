@@ -17,10 +17,15 @@ class GhostController extends Controller
      */
     public function index()
     {
-        $ghosts = Ghost::all();
+        $ghosts = Ghost::inRandomOrder();
+
+        if(request('search')){
+            $ghosts->where('name', 'like', '%' . request('search') . '%');
+        }
+
         return view('ghost', [
             'title' => 'ghosts',
-            'ghosts' => $ghosts
+            'ghosts' => $ghosts->get()
         ]);
     }
 
@@ -86,7 +91,7 @@ class GhostController extends Controller
      * @param  \App\Models\Ghost  $ghost
      * @return \Illuminate\Http\Response
      */
-    public function show(Ghost $ghost)
+    public function show()
     {
         //
     }

@@ -56,9 +56,8 @@ Route::POST('/ghosts/add-ghost', [GhostController::class, 'create']);
 
 Route::GET('/ghosts/{ghosts:name}', [GhostController::class, 'detail'])->name('ghost-detail');
 
-// Route::GET('/ghosts/{ghosts:name}/weakness', function () {
-//     return view('weakness');
-// })->name('weakness');
+
+
 
 Route::GET('/stories', [StoryController::class, 'index'])->name('stories');
 

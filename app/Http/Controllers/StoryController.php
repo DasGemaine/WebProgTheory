@@ -19,10 +19,15 @@ class StoryController extends Controller
      */
     public function index()
     {
-        $story = Story::all();
+        $story = Story::inRandomOrder();
+
+        if(request('search')){
+            $story->where('title', 'like', '%' . request('search') . '%');
+        }
+
         return view('stories', [
             'title' => 'Stories',
-            'stories' => $story
+            'stories' => $story->get()
         ]);
     }
 
