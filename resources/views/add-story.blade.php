@@ -9,7 +9,7 @@
                     <div class="card text-dark" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">
-                                Add New Story
+                                Share New Story
                             </h2>
 
                             <form action="/stories/add-story" method="POST" enctype="multipart/form-data">
@@ -27,7 +27,6 @@
                                 <div class="form-outline mb-4">
                                     <label for="ghostID">Ghost</label>
                                     <select name="ghostID" id="ghostID" class="form-control" required value="{{old ('ghostID')}}">
-                                        <option value="none" selected>none</option>
                                         @foreach ($ghosts as $ghost)
                                             <option value="{{ $ghost->id }}">{{ $ghost->name }}</option>
                                         @endforeach
@@ -53,7 +52,7 @@
 
 
                                 <div class="text-center mt-3">
-                                    <button type="submit" class="bg-danger btn  btn-block btn-lg text-light">Add Ghost</button>
+                                    <button type="submit" class="bg-danger btn  btn-block btn-lg text-light">Share Story</button>
                                 </div>  
                             </form>               
 
