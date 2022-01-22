@@ -22,6 +22,7 @@ class UserController extends Controller
 
         $register['role'] = 'Member';
         $register['password'] = Hash::make($register['password']);
+        $register['image'] = 'http://127.0.0.1:8000/image/profile/profile-default.jpg';
 
         User::create($register);
 
